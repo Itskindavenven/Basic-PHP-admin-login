@@ -23,6 +23,8 @@
         <title><?php echo $detail["page_title"];?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" href="<?php echo $detail["logo"]; ?>" type="image/x-icon">
+
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
