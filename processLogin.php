@@ -43,6 +43,11 @@ if(isset($_POST["mencoba_login"])) {
 
         "login_at" => date("Y-m-d H:i:s")
     ];
+
+    if (!isset($_SESSION["kamar"])) {
+        $_SESSION["kamar"] = array();
+    }
+    
     header("Location: ./dashboard.php");
 }
 
