@@ -13,6 +13,7 @@ $detail = [
     "logo" => "./assets/images/crown.png"
 ];
 
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +30,7 @@ $detail = [
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="./assets/css/poppins.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
         <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -82,6 +84,39 @@ $detail = [
                     </div>
                 </div>
             </div>
+            <h1 class="mt-5 mb-3 border-bottom fw-bold" class="container">Daftar Kamar</h1>
+            <p>Grand Atma saat ini meiliki <strong><?php echo count($_SESSION["kamar"]);?></strong> jenis kamar yang eksotis.</p>
+            <a href="./tambahKamar.php" class="btn btn-success mb-3"><i class="fa-solid fa-folder-plus"></i> Tambah Kamar</a>
+
+            <br>
+            <?php if(isset($_SESSION["kamar"]) && is_array($_SESSION["kamar"])): ?>
+                <div class="row" >
+                    <?php foreach ($_SESSION["kamar"] as $id => $kamar): ?>
+                        <div class="col-md-12">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="./assets/images/featurette-2.jpeg" class="img-fluid rounded mx-auto d-block" width="auto" height="auto" alt="Gambar kamar">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><?php echo $kamar["nama_kamar"]; ?></h5>
+                                            <p class="card-text border-bottom"><?php echo $kamar["deskripsi"]; ?></p>
+                                            <p class="card-text">
+                                                <span style="margin-right: 10px;">Tipe kamar: <strong><?php echo $kamar["tipe_kamar"]; ?></strong></span>
+                                                <span style="margin-right: 10px;">|</span>
+                                                <span class="ml-5">Harga: Rp. <?php echo $kamar["harga"]; ?>,00</span>
+                                            </p>
+                                            <a href="processHapus.php?id=<?php echo $id; ?>" class="btn btn-outline-danger"><i class="fa-regular fa-trash-can"></i>  Hapus Kamar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+            <?php endif; ?>
         </main>
         <script src="./assets/js/bootstrap.min.js"></script>
     </body>
