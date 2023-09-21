@@ -36,6 +36,8 @@ if(isset($_POST["mencoba_login"])) {
         exit;
     }
 
+    date_default_timezone_set('Asia/Jakarta');
+    
     $_SESSION["user"] = [
         "username" => $username,
         "password" => $password,

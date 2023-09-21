@@ -6,7 +6,7 @@ if (!isset($_SESSION["id"])) {
 }
 
 if(isset($_POST["tambah_kamar"])){
-    $id = $_SESSION["id"];
+    $idKamar = $_SESSION["id"];
     $namaKamar = $_POST["nama_kamar"];
     $deskripsi = $_POST["deskripsi"];
     $tipe = $_POST["tipe_kamar"];
@@ -36,12 +36,14 @@ if(isset($_POST["tambah_kamar"])){
 
     
     $_SESSION["kamar"][] = array(
+        "id" => $idKamar,
         "nama_kamar" => $namaKamar,
         "deskripsi" => $deskripsi,
         "tipe_kamar" => $tipe,
         "harga" => $harga
     );
 
+    $_SESSION["success"] = $_SESSION["success"] = "Berhasil menyimpan data Kamar " . $namaKamar . "!";;
     $_SESSION["id"]++;
     header("Location: ./dashboard.php");
 }

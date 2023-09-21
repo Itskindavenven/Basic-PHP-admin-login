@@ -64,6 +64,20 @@ $detail = [
 
         <main style="padding-top: 84px;" class="container">
             <h1 class="mt-5 mb-3 border-bottom fw-bold" class="container">Dashboard</h1>
+            <?php if(isset($_SESSION["success"])) { ?>
+                <div class="alert alert-success mb-4 text-center" role="alert">
+                    <strong>SUCCESS!</strong> <?php echo $_SESSION["success"]; ?>
+                </div>
+            <?php
+                unset($_SESSION["success"]);
+            }?>
+            <?php if(isset($_SESSION["successHapus"])) { ?>
+                <div class="alert alert-success mb-4 text-center" role="alert">
+                    <strong>SUCCESS!</strong> <?php echo $_SESSION["successHapus"]; ?>
+                </div>
+            <?php
+                unset($_SESSION["successHapus"]);
+            }?>
             <div class="row">
                 <div class="col-lg-10">
                     <div class="card card-body h-100 justify-content-center">

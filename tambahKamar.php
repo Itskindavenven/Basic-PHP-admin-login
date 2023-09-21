@@ -69,23 +69,23 @@ $detail = [
                 <div class="row mb-3">
                     <label for="inputNamaKamar" class="col-sm-2 col-form-label">Nama Kamar</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNamaKamar" name="nama_kamar">
+                    <input type="text" class="form-control" id="inputNamaKamar" name="nama_kamar" value="<?php echo isset($_POST['nama_kamar']) ? $_POST['nama_kamar'] : ''; ?>" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Deskripsi</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" id="floatingTextareaDisabled" style="height: 147px;" name="deskripsi"></textarea>
+                    <textarea class="form-control" id="floatingTextareaDisabled" style="height: 147px;" name="deskripsi" required><?php echo isset($_POST['deskripsi']) ? $_POST['deskripsi'] : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputTipe" class="col-sm-2 col-form-label">Tipe Kamar</label>
                     <div class="col-sm-10"> 
-                        <select id="inputTipe" class="form-select" name="tipe_kamar">
+                        <select id="inputTipe" class="form-select" name="tipe_kamar" required>
                             <option value="">Pilih Tipe Kamar</option>
-                            <option value="Standard">Standard</option>
-                            <option value="Superior">Superior</option>
-                            <option value="Luxury">Luxury</option>
+                            <option value="Standard" <?php if(isset($_POST['tipe_kamar']) && $_POST['tipe_kamar'] == 'Standard') echo 'selected'; ?>>Standard</option>
+                            <option value="Superior" <?php if(isset($_POST['tipe_kamar']) && $_POST['tipe_kamar'] == 'Superior') echo 'selected'; ?>>Superior</option>
+                            <option value="Luxury" <?php if(isset($_POST['tipe_kamar']) && $_POST['tipe_kamar'] == 'Luxury') echo 'selected'; ?>>Luxury</option>
                         </select>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ $detail = [
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
                             </div>
-                            <input type="text" class="form-control text-center" id="quantityInput" name="harga">
+                            <input type="text" class="form-control text-center" id="quantityInput" name="harga" value="<?php echo isset($_POST['harga']) ? $_POST['harga'] : ''; ?>" required>
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
                             </div>
